@@ -16,7 +16,19 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
+  
   switch (action.type) {
+    case "ADD_ITEM":
+    return {
+             ...state, car: {price: state.car.price + action.payload.price,  features: [state.car.features, action.payload]}, 
+             additionalFeatures: state.additionalFeatures.filter((x) => x.id !== action.payload.id)
+                   
+             
+
+
+    }
+
+
     default:
       return state;
   }
